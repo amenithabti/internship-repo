@@ -1,3 +1,3 @@
 #Description 
 
-This project is about
+Implémentation d'un système de recommandation des plateformes -learning
