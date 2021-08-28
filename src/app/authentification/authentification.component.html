@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <section>
+        <div class="image-container">
+            <img src="../../assets/Capture.PNG">
+        </div>
+        <div class="form-container">
+           <div class="form">
+             <h2>  Sign In</h2>      
+              <form >
+                  <div class="input">
+                      <span>username</span>
+                      <input type="username" required  [(ngModel)] ="username" name="username">
+                    </div>
+                  <div class="input">
+                      <span>password</span>
+                    <input type="password" required  [(ngModel)] ="password" name="password">
+                  </div>
+                  <div class="remember">
+                      <label><input type="checkbox">Remember me</label>
+                  </div>
+                  <div class="input">
+                      <input type="submit" value="Login" (click)="connect()"
+                     
+                      > 
+                  </div>
+                  <div class="input">
+                      <p>Don't have an account ? <a href="http://localhost:4200/inscription"><strong> Sign Up  !</strong> </a></p>
+                  </div>
+              </form>
+    </div>
+        </div>
+    </section>
+</body>
+</html>
