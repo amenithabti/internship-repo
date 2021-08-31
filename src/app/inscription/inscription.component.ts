@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../core/services/authentication.service';
 
 @Component({
   selector: 'app-inscription',
@@ -7,21 +8,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./inscription.component.scss']
 })
 export class InscriptionComponent implements OnInit {
-fullName="";
-username=""; 
-password="";
-confirm_password="";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router , public service: AuthenticationService) { }
 
   ngOnInit(): void {
+    this.service.formModel.reset();
+
   }
 
   create_account(){
-      console.log(this.fullName);
-      console.log(this.username);
-      console.log(this.confirm_password);
-      console.log(this.password);
-
+    this.service.register();
   }
+//this.service.register().subscribe(
+
+  //(res : any) =>{
+
+   // if (res.succeded){
+    //  this.service.formModel.reset();
+    //  
+    //}else {
+     // res.errors.array.forEach( element => {
+        //switch ( element.code){
+          //case 'DuplicateUserName':
+            //User is already taken
+           // break;
+
+           // default:
+              //registration failed 
+            //  break;
+     //   }
+     // });;
+      
+   // }
+ // },
+  //err => {
+   // console.log(err);
+ // }
+//);
+ // }
 }

@@ -18,25 +18,31 @@
         <div class="form-container">
            <div class="form">
              <h2>  Create your Account by Filling Up This form!</h2>      
-              <form >
+              <form [formGroup]="service.formModel" autocomplete="off">
                 <div class="input">
-                    <span>First and lastName</span>
-                    <input type="text"  [(ngModel)] ="fullName"  name="fullName" >
+                    <span>FullName</span>
+                    <input  type="text" name="FullName" formControlName="FullName">
                 </div>
                   <div class="input">
                       <span>username</span>
-                      <input type="text"  [(ngModel)] ="username" name="username">
+                      <input type="text" name="username" formControlName="username">
+                      <label class="text-danger" *ngIf="service.formModel?.get('username')?.touched && service.formModel?.get('username')?.errors?.required">This field is mandatory.</label>
                   </div>
                   <div class="input">
                       <span>password</span>
-                      <input type="password"  [(ngModel)] ="password"  name="password">
-                  </div>
+                      <input type="password" name="password" formControlName="password">
+                      <label class="text-danger" *ngIf="service.formModel?.get('password')?.touched && service.formModel?.get('password')?.errors?.required">This field is mandatory.</label>
+                      <label class="text-danger" *ngIf="service.formModel?.get('password')?.touched && service.formModel?.get('password')?.errors?.minlength">Minimum 4 caracters </label>
+                 
+                    </div>
                   <div class="input">
                     <span> confirm password</span>
-                    <input type="password"  [(ngModel)] ="confirm_password"  name="confirmPassword">
+                    <input type="password" name="confirmpassword" formControlName="confirmpassword">
+                    <label class="text-danger" *ngIf="service.formModel?.get('confirmPassword')?.touched && service.formModel?.get('confirmPassword')?.errors?.required">This field is mandatory.</label>
+                    <!--<label class="text-danger" *ngIf="service.formModel.get('confirmPassword').touched && service.formModel.get('confirmPassword').errors?.passwordMismatch">confirm password does not match</label> -->
                 </div>
                   <div class="input">
-                      <input type="submit" value="create account" (click)="create_account()">>
+                      <input type="submit" value="create account" (click)="create_account()"  [disabled]="!service.formModel.valid">
                   </div>
                  
               </form>
